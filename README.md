@@ -1,7 +1,2 @@
-# CSC-551-repo
-This repo holds test code for the class
-
-1. Beginning of list
-- hello
-
-This line is for testing the git terminal
+# CSC-551 Group 4
+This repo holds the code for Group 4's project.
