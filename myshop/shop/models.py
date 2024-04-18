@@ -40,5 +40,5 @@ class Product(models.Model):
             models.Index(fields=['name']),
             models.Index(fields=['-created']),
         ]
-        def __str__(self):
-            return self.name
+    def __str__(self):
+        return self.name
