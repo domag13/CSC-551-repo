@@ -9,7 +9,7 @@ class Customer(models.Model):
     adress_2 = models.CharField(max_length=250)
     postal_code = models.CharField(max_length=20)
     city = models.CharField(max_length=100)
-    state = models.CharField(max_lenght=2)
+    state = models.CharField(max_length=2)
     phone = models.CharField(max_length=10)
 
     def __str__(self):
