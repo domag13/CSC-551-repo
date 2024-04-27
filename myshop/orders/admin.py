@@ -7,8 +7,13 @@ class OrderItemInline(admin.TabularInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'first_name', 'last_name', 'email',
-    'address', 'postal_code', 'city', 'paid',
-    'created', 'updated']
-    list_filter = ['paid', 'created', 'updated']
+    list_display = ['paid', 'created', 'updated']
+    list_filter = ['paid', 'created', 'updated', 'customer_id']
     inlines = [OrderItemInline]
+
+class CustomerAdmin(admin.ModelAdmin):
+    list_display = ['id', 'first_name', 'last_name', 'email',
+    'address', 'address_2', 'postal_code', 'city', 'state', 'phone']
+    list_filter = ['id', 'first_name', 'last_name']
+
+    
