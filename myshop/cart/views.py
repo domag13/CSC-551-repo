@@ -4,6 +4,8 @@ from shop.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
 
+import logging
+
 @require_POST
 def cart_add(request, product_id):
     cart = Cart(request)
@@ -11,6 +13,7 @@ def cart_add(request, product_id):
     form = CartAddProductForm(request.POST)
     if form.is_valid():
         cd = form.cleaned_data
+        cart.remove(product=product)
         cart.add(product=product, quantity=cd['quantity'], override_quantity=cd['override'])
     return redirect('cart:cart_detail')
 
@@ -23,5 +26,10 @@ def cart_remove(request, product_id):
 
 def cart_detail(request):
     cart = Cart(request)
+    for item in cart:
+        item['update_quantity_form'] = CartAddProductForm(initial={
+        'quantity': item['quantity'],
+        'override': True})
     return render(request, 'cart/detail.html', {'cart': cart})
+
 
