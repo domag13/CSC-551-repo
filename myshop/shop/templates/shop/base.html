@@ -11,6 +11,22 @@
             <a href="/" class="logo">D&S Shoes</a>
         </div>
         <div id="subheader">
+            {% if user.is_authenticated %}
+                <div class="user">
+                    {% if user.first_name %}
+                        <p>Welcome, {{ user.first_name }}!</p>
+                    {% else %}
+                        <p>Welcome, {{ user.username }}!</p>
+                    {% endif %}
+                    <p class="logout">
+                        <a href="{% url "shop:logout" %}"">Log Out</a>
+                    </p>
+                </div>
+            {% else %}
+                <div class="">
+                   <a href="{% url "shop:login" %}">Login</a>
+                </div>
+            {% endif %}
             <div class="cart">
                 {% with total_items=cart|length %}
                     {% if total_items > 0 %}

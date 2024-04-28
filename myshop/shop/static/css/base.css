@@ -127,6 +127,8 @@ ul.errorlist {
     color:#444;
     padding:15px 100px;
     overflow:auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 #header .logo {
@@ -138,8 +140,9 @@ ul.errorlist {
 }
 
 #subheader .cart {
-    float:right;
     padding-top:4px;
+    display: flex;
+    align-items: center;
 }
 
 #content {
@@ -328,3 +331,14 @@ form div.field {
     color:#666;
     border-radius:4px;
 }
+
+#subheader .user {
+    padding-top:4px;
+    display: flex;
+    align-items: center;
+}
+
+.logout {
+    padding-left: .5rem;
+}
+
