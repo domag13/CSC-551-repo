@@ -19,7 +19,7 @@ a:hover {
     color:#77b6e2;
 }
 
-a.button, input[type="submit"] {
+a.button, input[type="submit"], .create-button {
     color:#fff;
     background:#5993bb;
     border-radius:4px;
@@ -340,5 +340,15 @@ form div.field {
 
 .logout {
     padding-left: .5rem;
+}
+
+.login-form{
+    display: flex;
+    width: auto;
+}
+
+.create-user{
+    margin-left: 3rem;
+    padding-top: 6rem;
 }
 
