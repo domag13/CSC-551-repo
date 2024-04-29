@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}D&S Shoes{% endblock %}</title>
+    <link href="{% static "css/login.css" %}" rel="stylesheet">
+</head>
+{% block content %}
+    <h1>Log-in</h1>
+    {% if form.errors %}
+        <p>
+            Your username and password didn't match.
+            Please try again.
+        </p>
+    {% else %}
+    {% endif %}
+    <div class="login-form">
+        <div>
+            <form action="{% url 'shop:login' %}" method="post">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ product_list }}" />
+                <p><input type="submit" value="Log-in"></p>
+            </form>
+        </div>
+        <div class="create-user">
+            <p>Not a user?</p>
+            <a><button class="create-button">Create a User</button></a>
+        </div>
+    </div>
+{% endblock %}
