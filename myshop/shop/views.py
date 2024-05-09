@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 
@@ -54,4 +54,16 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     render(request, 'product/product_list.html')
+
+def signup(request):
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request,user)
+            return redirect('/')
+    else:
+        form = RegistrationForm()
+    return render(request, 'registration.html', {'form':form})
+
 
